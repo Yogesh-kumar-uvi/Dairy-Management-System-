@@ -19,13 +19,21 @@ connectDB();
 const app = express();
 app.set('trust proxy', 1); // required on Render for rate-limit & secure cookies
 
-// Secure headers (CORS-safe so the Vercel frontend is not blocked)
+// Secure headers (CORS-safe so the frontend is not blocked)
 app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }));
 
 // Explicit CORS whitelist with credentials for httpOnly cookies
 const allowedOrigins = (process.env.CLIENT_URLS || 'http://localhost:3000').split(',').map((s) => s.trim());
+console.log('Allowed CORS origins:', allowedOrigins);
+
 app.use(cors({
-  origin: (origin, cb) => (!origin || allowedOrigins.includes(origin)) ? cb(null, true) : cb(new Error('Blocked by CORS')),
+  origin: (origin, cb) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      return cb(null, true);
+    }
+    console.warn(`Blocked by CORS: ${origin}`);
+    return cb(null, false); // deny cleanly — no thrown error, no 500
+  },
   credentials: true
 }));
 
