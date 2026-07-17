@@ -1,0 +1,224 @@
+/* ---------- Neumorphism Design System (Palette 1 - Fresh Dairy Theme) ---------- */
+:root {
+  --bg: #EEF2F7;
+  --card-bg: #F5F7FA;
+  --shadow-dark: #d6dae0;
+  --shadow-light: #ffffff;
+  --text: #2E3A59;
+  --text-muted: #7A869A;
+  --primary: #5B8DEF;
+  --secondary: #65C18C;
+  --accent: #F6C667;
+  --danger: #EF5350;
+  --success: #4CAF50;
+  --warning: #FFB74D;
+  --radius: 18px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.neu-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: 9px 9px 18px var(--shadow-dark), -9px -9px 18px var(--shadow-light);
+  padding: 24px;
+}
+
+.neu-inset {
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: inset 5px 5px 10px var(--shadow-dark), inset -5px -5px 10px var(--shadow-light);
+}
+
+.neu-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--text);
+  background: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: inset 5px 5px 10px var(--shadow-dark), inset -5px -5px 10px var(--shadow-light);
+}
+
+.neu-input::placeholder { color: var(--text-muted); }
+.neu-input:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.neu-btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  background: var(--primary);
+  padding: 12px 24px;
+  border-radius: 12px;
+  box-shadow: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.neu-btn:hover { transform: translateY(-1px); filter: brightness(1.05); }
+.neu-btn:active {
+  box-shadow: inset 5px 5px 10px var(--shadow-dark), inset -5px -5px 10px var(--shadow-light);
+  transform: translateY(0);
+}
+.neu-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.neu-btn.danger { background: var(--danger); color: white; padding: 8px 16px; font-size: 12px; }
+.neu-btn.small { padding: 8px 16px; font-size: 12px; }
+
+.app-layout { display: flex; min-height: 100vh; }
+
+.sidebar {
+  width: 240px;
+  padding: 32px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  background: var(--bg);
+}
+
+.sidebar .logo {
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  padding: 16px;
+  margin-bottom: 12px;
+  border-radius: var(--radius);
+  background: var(--card-bg);
+  box-shadow: 6px 6px 12px var(--shadow-dark), -6px -6px 12px var(--shadow-light);
+  color: var(--primary);
+}
+
+.sidebar-footer { margin-top: auto; display: flex; flex-direction: column; gap: 10px; }
+.user-chip { padding: 10px 14px; font-size: 13px; text-align: center; }
+
+.badge {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--primary);
+  background: var(--card-bg);
+  padding: 2px 8px;
+  border-radius: 8px;
+  box-shadow: 3px 3px 6px var(--shadow-dark), -3px -3px 6px var(--shadow-light);
+}
+
+.nav-link {
+  display: block;
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 500;
+  padding: 14px 20px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover { color: var(--primary); }
+.nav-link.active {
+  color: var(--primary);
+  background: var(--card-bg);
+  box-shadow: inset 5px 5px 10px var(--shadow-dark), inset -5px -5px 10px var(--shadow-light);
+}
+
+.main-content {flex: 1; padding: 32px; max-width: 1200px; }
+.topbar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 24px;
+}
+
+.topbar .neu-btn {
+  font-size: 13px;
+  padding: 10px 20px;
+}
+.page-title { font-size: 24px; font-weight: 600; margin-bottom: 24px; }
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.stat-card .stat-label { font-size: 13px; color: var(--text-muted); margin-bottom: 8px; }
+.stat-card .stat-value { font-size: 26px; font-weight: 700; color: var(--primary); }
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.neu-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.neu-table th {
+  text-align: left;
+  padding: 12px 14px;
+  color: var(--text-muted);
+  font-weight: 600;
+  border-bottom: 1px solid rgba(122, 134, 154, 0.25);
+}
+.neu-table td { padding: 12px 14px; border-bottom: 1px solid rgba(122, 134, 154, 0.15); }
+
+.section-gap { margin-top: 32px; }
+.empty-state { text-align: center; color: var(--text-muted); padding: 24px; }
+.error-text { color: var(--danger); font-size: 13px; margin-bottom: 12px; }
+.success-text { color: var(--success); font-size: 13px; margin-bottom: 12px; }
+
+.flex-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.amount-preview { font-size: 20px; font-weight: 700; color: var(--success); padding: 12px 20px; }
+
+/* Auth pages */
+.auth-wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 20px; }
+.auth-card { width: 100%; max-width: 400px; display: flex; flex-direction: column; gap: 16px; }
+.auth-card h2 { text-align: center; color: var(--primary); }
+.auth-card a { color: var(--primary); font-size: 13px; text-align: center; }
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(46, 58, 89, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+.modal-box { width: 100%; max-width: 420px; }
+
+/* Pagination */
+.pagination { display: flex; gap: 10px; justify-content: center; margin-top: 20px; align-items: center; }
+
+@media (max-width: 768px) {
+  .app-layout { flex-direction: column; }
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    overflow-x: auto;
+  }
+  .sidebar .logo { margin-bottom: 0; white-space: nowrap; }
+  .sidebar-footer { margin-top: 0; flex-direction: row; }
+  .main-content { padding: 20px; }
+  .neu-table { display: block; overflow-x: auto; }
+}
+
+@media print {
+  .sidebar, .neu-btn, form { display: none !important; }
+  .neu-card { box-shadow: none; }
+}
